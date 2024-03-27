@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "compania": 19,
+  "emplContable": "EMP0001234",
+  "monto": 350.00,
+  "tipo": "C",
+  "fechaRegistro": "2018-03-25T14:12:00",
+  "origen": {
+    "appId": "EXPENSES",
+    "usuario": "Araceli García",
+    "nota": "Celular Nokia 5120 no devuelto."
+  }
+}

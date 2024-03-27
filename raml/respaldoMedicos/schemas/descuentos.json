@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "title": "viaticos",
+  "type": "object",
+  "properties": {
+    "descuentos": {
+      "type": "array",
+      "items": [
+        {
+          "idReg": {
+            "type": "integer",
+            "required": false,
+            "title": "idReg"
+          },
+          "compania": {
+            "type": "integer",
+            "required": false,
+            "title": "compania"
+          },
+          "emplContable": {
+            "type": "string",
+            "required": true,
+            "title": "emplContable"
+          },
+          "monto": {
+            "type": "number",
+            "required": true,
+            "title": "monto",
+            "minimum": 1
+          },
+          "tipo": {
+            "type": "string",
+            "required": false,
+            "title": "tipo",
+            "default": "C"
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "required": false,
+            "title": "fechaRegistro"
+          },
+          "origen": {
+            "type": "object",
+            "properties": {
+              "appId": {
+                "type": "string",
+                "required": true,
+                "title": "appId"
+              },
+              "usuario": {
+                "type": "string",
+                "required": true,
+                "title": "usuario"
+              },
+              "nota": {
+                "type": "string",
+                "required": true,
+                "title": "nota"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

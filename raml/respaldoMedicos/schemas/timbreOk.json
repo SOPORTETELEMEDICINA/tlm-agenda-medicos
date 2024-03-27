@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "title": "timbreOk",
+  "type": "object",  
+  "properties": {
+    "total": {
+      "type": "integer",
+      "required": false,
+      "title": "total"
+    },
+    "correctos": {
+      "type": "integer",
+      "required": false,
+      "title": "correctos"
+    }
+  }
+}

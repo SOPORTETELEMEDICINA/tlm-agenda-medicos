@@ -1,0 +1,129 @@
+#%RAML 1.0
+---
+title: API Medicos
+baseUri: http://amentum.net/vitat/medicos
+version: v1
+#mediaType:  application/json
+
+types:
+  MedicoView:
+    type: object
+    properties:
+      idMedico: string
+      nombre: string
+      apellidoPaterno: string
+      apellidoMaterno: string
+      fechaNacimiento: date-only
+      estadoCivil: string
+      sexo: string
+      curp: string
+      rfc: string
+      especialidad: string
+      universidad: string
+      cedula: string
+      email: string
+      telefonoOficina: string
+      telefonoCelular: string
+      idDomicilio: string
+      idUsuario: integer
+      activo: boolean
+resourceTypes: 
+  collection:
+    description: Arreglo  Paginado de <<resourcePathName>> en la aplicacion
+    get:
+      description: Obtener una lista de <<resourcePathName>>
+#      is: MedicoView.pageable
+      responses:
+        200:
+          body:
+            application/json:
+              type: MedicoView[]      
+
+/medicos:
+  post:
+    description: Guardar un medico
+    body:
+      application/json:
+        type: MedicoView
+    responses:
+      201:
+        description: Medico creado
+        body:
+          text/html:
+            type: nil
+      500:
+#        description: Se presento un error
+         body:
+            application/json:
+              example: |
+                {"mensaje": "<<resourcePathName|!singularize>> Internal Server Error" }
+  /{idMedico}:
+    put:
+      description: Modificar un medico
+      body:
+        application/json:
+          type: MedicoView
+      responses:
+        200:
+          body:
+            text/plain:
+              type: nil
+        500:
+          description: Se presento un error
+    get:
+      description: Obtener un medico por su ID
+      responses:
+        200:
+          body:
+            application/json:
+              #type: <<resourcePath>> #MedicoView
+              type: MedicoView
+        500:
+          description: Se presento un error
+  /obtenerPorIdUsuario/{idUsuario}:
+    get:
+      description: Obtener un medico por su ID de Usuario
+      responses:
+        200:
+          body:
+            application/json:
+              type: MedicoView
+        500:
+          description: Se presento un error
+  /page:
+    type: collection
+    get:
+      description: Obtener todos los medicos paginados
+      queryParameters:
+        active:
+          description: Si se encuentra activo
+          type: boolean
+          required: false
+        name:
+          description: El nombre
+          type: string
+          required: false
+          default: void
+        page:
+          description: El número de la página
+          type: integer
+          required: false
+        size:
+          description: El tamaño de la registros
+          type: integer
+          required: false
+        orderColum:
+          description: Por la columna que se va a ordenar
+          type: string
+          required: false
+        orderType:
+          description: Tipo de ordenamiento
+          type: string
+          required: false
+          example: desc
+      responses:
+          200:
+#            body:
+#              application/json:
+#                type: MedicoView[]
+

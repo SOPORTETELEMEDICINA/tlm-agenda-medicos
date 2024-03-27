@@ -1,0 +1,56 @@
+{
+  "descuentos": [
+    {
+      "id": 1,
+      "compania": 32,
+      "emplContable": "EMP0001234",
+      "monto": 280,
+      "tipo": "A",
+      "fechaRegistro": "2015-02-15T17:23:00",
+      "origen": {
+        "appId": "ESLABON",
+        "usuario": "Miriam Soltero",
+        "nota": "Nómina quincenal: 20150215"
+      }
+    },
+    {
+      "id": 1,
+      "compania": 32,
+      "emplContable": "EMP0001234",
+      "monto": 280,
+      "tipo": "A",
+      "fechaRegistro": "2015-02-15T17:23:00",
+      "origen": {
+        "appId": "ESLABON",
+        "usuario": "Miriam Soltero",
+        "nota": "Nómina quincenal: 20150215"
+      }
+    },
+    {
+      "id": 1,
+      "compania": 32,
+      "emplContable": "EMP0001234",
+      "monto": 280,
+      "tipo": "A",
+      "fechaRegistro": "2015-02-15T17:23:00",
+      "origen": {
+        "appId": "ESLABON",
+        "usuario": "Miriam Soltero",
+        "nota": "Nómina quincenal: 20150215"
+      }
+    },
+    {
+      "id": 1,
+      "compania": 32,
+      "emplContable": "EMP0001234",
+      "monto": 280,
+      "tipo": "A",
+      "fechaRegistro": "2015-02-15T17:23:00",
+      "origen": {
+        "appId": "ESLABON",
+        "usuario": "Miriam Soltero",
+        "nota": "Nómina quincenal: 20150215"
+      }
+    }
+  ]
+}

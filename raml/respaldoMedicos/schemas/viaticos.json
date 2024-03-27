@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "title": "viaticos",
+  "type": "object",
+  "properties": {
+    "viaticos": {
+      "type": "array",
+      "items": [
+        {
+          "idReg": {
+            "type": "integer",
+            "required": "false"
+          },
+          "compania": {
+            "type": "integer",
+            "required": "false"
+          },
+          "emplContable": {
+            "type": "string",
+            "required": "false"
+          },
+          "dip": {
+            "type": "string",
+            "required": "false"
+          },
+          "monto": {
+            "type": "number",
+            "required": "true"
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "required": "false"
+          },
+          "concepto": {
+            "type": "string",
+            "required": "false"
+          },
+          "origen": {
+            "type": "object",
+            "properties": {
+              "appId": {
+                "type": "string",
+                "required": "true"
+              },
+              "usuario": {
+                "type": "string",
+                "required": "true"
+              },
+              "nota": {
+                "type": "string",
+                "required": "true"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

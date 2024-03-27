@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "required": true,
+  "properties": {
+    "idMedico":{
+      "type": "string"
+    }
+  }
+}

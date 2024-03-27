@@ -1,0 +1,295 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/7c25e300-bda4-4cf4-b175-617bcb4804d9/ #
+title: asi-sla
+protocols: [HTTP]
+version: 0.0.1
+mediaType: application/json
+
+/sla:
+  post:
+    displayName: añadir un nuevo SLA
+    description:  |
+      Metodo para crear un nuevo sla
+      
+      Todos los compas son requeridos.
+      
+      "TiempoAtencion" debe ser mayor a cero
+
+      "Usuariosdvertencia" por lo menos debe de contener uno 
+    
+      "tiempoRespuesta" y "tiemporResolucion" la unidad de medida sera en minutos
+    responses:
+      201:
+        body: 
+          application/json:
+            type: object
+            example:   |
+              {
+                "menssage": "created"
+              } 
+      401:
+        body:
+          application/json:
+            type: object
+            example: !include json/errorStatus.json
+      403:
+        body:
+          application/json:
+            type: object
+            example: !include json/errorStatus.json
+      404:
+        body:
+          application/json:
+            type: object
+            example: !include json/errorStatus.json
+    body:
+      application/json:
+        type: !include schema/sla-schema.json
+        example: !include json/sla.json     
+        
+  /{slaId}: 
+    description: endPoint para obtener un sla en especifico, modificarlo o eliminarlo
+    uriParameters: 
+      slaId: 
+        type: integer
+        description: id de sla al cual se quiere acceder, modificar o eliminarlo  
+    put:
+      displayName: Actualizar un SLA
+      description: |
+        Para que la request sea aceptado en back por lo minimo debe de contener un campo
+        
+        los campos "porcentaje", "tiemoAtencion" y "tiempoRespueta" deben contener un valor numerico mayor a 0
+      responses: 
+        200:
+          body: 
+            application/json:
+              type: object
+              example: |
+               {
+               "menssage": "ok"
+               } 
+        401:
+          body:
+            application/json:
+              type: object
+              example: !include json/errorStatus.json
+        403:
+          body:
+            application/json:
+              type: object
+              example: !include json/errorStatus.json
+        404:
+          body:
+            application/json:
+              type: object
+              example: !include json/errorStatus.json       
+      body: 
+        application/json:
+          type: !include schema/sla-schema.json
+          example: !include json/sla.json  
+    get:
+      displayName: Obtener un SLA
+      responses: 
+        200:
+          body:
+            application/json:
+              example: !include json/sla.json
+              type: !include schema/sla-schema.json 
+        401:
+          body:
+            application/json:
+              type: object
+              example: !include json/errorStatus.json
+        403:
+          body:
+            application/json:
+              type: object
+              example: !include json/errorStatus.json
+        404:
+          body:
+            application/json:
+              type: object
+              example: !include json/errorStatus.json
+    delete:
+      displayName: eliminar un sla por Id
+      responses:
+        200:
+          body:
+              application/json:
+                type: object
+                example: |
+                  {
+                    "menssage": "ok"
+                  }
+        401:
+          body:
+            application/json:
+              type: object
+              example: !include json/errorStatus.json
+        403:
+          body:
+            application/json:
+              type: object
+              example: !include json/errorStatus.json
+        404:
+          body:
+            application/json:
+              type: object
+              example: !include json/errorStatus.json
+    /details:
+      put: 
+        displayName: Obtener todas las Escalaciones
+        description: obtener todas las escalaciones en forma paginable  
+        responses: 
+          200:
+           body:
+              application/json:
+                type: object
+                example: |
+                  {
+                    "menssage": "ok"
+                  } 
+          401:
+            body:
+              application/json:
+                type: object
+                example: !include json/errorStatus.json
+          403:
+            body:
+              application/json:
+                type: object
+                example: !include json/errorStatus.json
+          404:
+            body:
+              application/json:
+                type: object
+                example: !include json/errorStatus.json  
+        body:
+          application/json:
+            type: !include schema/slaDetailObject-schema.json
+            example: !include json/slaDetailObject.json 
+      /{idSlaDetails}:
+        description: endPoint para obtener un un detalle del SLA en especifico, modificarlo o eliminarlo
+        uriParameters: 
+          idSlaDetails: 
+            type: integer
+            description: id de sla al cual se quiere acceder, modificar o eliminarlo  
+        get:
+          displayName: Obtener el detalle de una prioridad  de un sla espesifico
+          responses: 
+            200:
+             body:
+                application/json:
+                  type: !include json/slaDetailObject.json
+                  example: !include schema/slaDetailObject-schema.json
+            401:
+              body:
+                application/json:
+                  type: object
+                  example: !include json/errorStatus.json
+            403:
+              body:
+                application/json:
+                  type: object
+                  example: !include json/errorStatus.json
+            404:
+              body:
+                  application/json:
+                    type: object
+                    example: !include json/errorStatus.json  
+        put:
+          displayName: Actualizar el detalle de una prioridad  de un sla espesifico
+          responses: 
+            200:
+              body:
+                application/json:
+                  type: object
+                  example: |
+                    {
+                      "menssage": "ok"
+                    }
+            401:
+              body:
+                application/json:
+                  type: object
+                  example: !include json/errorStatus.json
+            403:
+              body:
+                application/json:
+                  type: object
+                  example: !include json/errorStatus.json
+            404:
+              body:
+                  application/json:
+                    type: object
+          body:
+            application/json:
+              type: !include schema/slaDetailObject-schema.json
+              example: !include json/slaDetailObject.json            
+        delete:
+          displayName: Eliminar el detalle de una prioridad  de un sla espesifico
+          responses: 
+            200:
+             body:
+              application/json:
+                type: object
+                example: |
+                  {
+                    "menssage": "ok"
+                  } 
+            401:
+              body:
+                application/json:
+                  type: object
+                  example: !include json/errorStatus.json
+            403:
+              body:
+                application/json:
+                  type: object
+                  example: !include json/errorStatus.json
+            404:
+              body:
+                  application/json:
+                    type: object
+                    example: !include json/errorStatus.json 
+                  
+    
+  /search:
+    get:
+      description: | 
+        La busqeuda contiene parametros por los cuales se pueden filtrar la busqueda o se pueden omitir para obtener todos los sla
+      displayName: Busqueda de SLA
+      queryParameters:
+        descripcion:
+          type: string
+          required: false
+        idCategory:
+          type: string
+          required: false
+        idSubcategory:
+          type: string
+          required: false
+        idTipoTicket:
+          type: string
+          required: false
+      responses:
+        200:
+          body:
+            application/json:
+              type: object
+              example: !include json/pageSla.json
+        401:
+          body:
+            application/json:
+              type: object
+              example: !include json/errorStatus.json
+        402:
+          body:
+            application/json:
+              type: object
+              example: !include json/errorStatus.json
+        403:
+          body:
+            application/json:
+              type: object
+              example: !include json/errorStatus.json

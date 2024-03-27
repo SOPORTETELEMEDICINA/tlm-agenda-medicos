@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "title": "timbre-viatico",
+  "type": "object",  
+  "properties": {
+    "fechaTimbrado": {
+      "type": "string",
+      "required": false,
+      "title": "fechaTimbrado"
+    }
+  }
+}

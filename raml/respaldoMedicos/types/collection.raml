@@ -1,0 +1,14 @@
+#%RAML 1.0 ResourceType
+description: Arreglo  Paginado de <<resourcePathName>> en la aplicacion
+get:
+    description: Obtener una lista de <<resourcePathName>>
+#    is: paged
+    responses:
+        200:
+            body:
+                application/json:
+                    type: MedicoView[]      
+post:
+    body:
+        application/json:
+            type: MedicoView

@@ -1,0 +1,11 @@
+{
+  "emplContable": "EMP0001234",
+  "dip": "",
+  "monto": 800.00,
+  "concepto": "Viaje a Monterrey.",
+  "origen": {
+    "appId": "EXPENSES",
+    "usuario": "Roberto Rodríguez",
+    "nota": "Texto libre, escribe lo que creas que sirva para describir la operación."
+  }
+}

@@ -1,0 +1,364 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "array",
+  "items": [
+    {
+      "$id": "#/items/0",
+      "type": "object",
+      "required": [
+        "idSladetail",
+        "prioridad",
+        "tiempioRespuesta",
+        "tiempoResolucion",
+        "idSla",
+        "escalacion1_resp",
+        "escalacion2_resp",
+        "escalacion3_resp",
+        "escalacion4_resp"
+      ],
+      "properties": {
+        "idSladetail": {
+          "$id": "#/items/0/properties/idSladetail",
+          "type": "integer",
+          "examples": [
+            6
+          ],
+          "minimum": 1
+        },
+        "prioridad": {
+          "$id": "#/items/0/properties/prioridad",
+          "type": "integer",
+          "examples": [
+            1
+          ],
+          "minimum": 1
+        },
+        "tiempioRespuesta": {
+          "$id": "#/items/0/properties/tiempioRespuesta",
+          "type": "integer",
+          "examples": [
+            60
+          ],
+          "minimum": 1
+        },
+        "tiempoResolucion": {
+          "$id": "#/items/0/properties/tiempoResolucion",
+          "type": "integer",
+          "examples": [
+            240
+          ],
+          "minimum": 1
+        },
+        "idSla": {
+          "$id": "#/items/0/properties/idSla",
+          "type": "integer",
+          "examples": [
+            1
+          ],
+          "minimum": 1
+        },
+        "escalacion1_resp": {
+          "$id": "#/items/0/properties/escalacion1_resp",
+          "type": "string",
+          "examples": [
+            "Juan@gmail.com, Ernesto@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "escalacion2_resp": {
+          "$id": "#/items/0/properties/escalacion2_resp",
+          "type": "string",
+          "examples": [
+            "Luis@gmail.com, p@p.com, j@j.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "escalacion3_resp": {
+          "$id": "#/items/0/properties/escalacion3_resp",
+          "type": "string",
+          "examples": [
+            "Antonio@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "escalacion4_resp": {
+          "$id": "#/items/0/properties/escalacion4_resp",
+          "type": "string",
+          "examples": [
+            "David@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    {
+      "$id": "#/items/1",
+      "type": "object",
+      "required": [
+        "idSladetail",
+        "prioridad",
+        "tiempioRespuesta",
+        "tiempoResolucion",
+        "slaId",
+        "escalacion1_resp",
+        "escalacion2_resp",
+        "escalacion3_resp",
+        "escalacion4_resp"
+      ],
+      "properties": {
+        "idSladetail": {
+          "$id": "#/items/1/properties/idSladetail",
+          "type": "integer",
+          "examples": [
+            7
+          ],
+          "minimum": 1
+        },
+        "prioridad": {
+          "$id": "#/items/1/properties/prioridad",
+          "type": "integer",
+          "examples": [
+            2
+          ],
+          "minimum": 1
+        },
+        "tiempioRespuesta": {
+          "$id": "#/items/1/properties/tiempioRespuesta",
+          "type": "integer",
+          "examples": [
+            120
+          ],
+          "minimum": 1
+        },
+        "tiempoResolucion": {
+          "$id": "#/items/1/properties/tiempoResolucion",
+          "type": "integer",
+          "examples": [
+            480
+          ],
+          "minimum": 1
+        },
+        "slaId": {
+          "$id": "#/items/1/properties/slaId",
+          "type": "integer",
+          "examples": [
+            1
+          ],
+          "minimum": 1
+        },
+        "escalacion1_resp": {
+          "$id": "#/items/1/properties/escalacion1_resp",
+          "type": "string",
+          "examples": [
+            "Juan@gmail.com, Ernesto@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "escalacion2_resp": {
+          "$id": "#/items/1/properties/escalacion2_resp",
+          "type": "string",
+          "examples": [
+            "Luis@gmail.com, p@p.com, j@j.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "escalacion3_resp": {
+          "$id": "#/items/1/properties/escalacion3_resp",
+          "type": "string",
+          "examples": [
+            "Antonio@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "escalacion4_resp": {
+          "$id": "#/items/1/properties/escalacion4_resp",
+          "type": "string",
+          "examples": [
+            "David@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    {
+      "$id": "#/items/2",
+      "type": "object",
+      "required": [
+        "idSladetail",
+        "prioridad",
+        "tiempioRespuesta",
+        "tiempoResolucion",
+        "slaId",
+        "escalacion1_resp",
+        "escalacion2_resp",
+        "escalacion3_resp",
+        "escalacion4_resp"
+      ],
+      "properties": {
+        "idSladetail": {
+          "$id": "#/items/2/properties/idSladetail",
+          "type": "integer",
+          "examples": [
+            8
+          ],
+          "minimum": 1
+        },
+        "prioridad": {
+          "$id": "#/items/2/properties/prioridad",
+          "type": "integer",
+          "examples": [
+            3
+          ],
+          "minimum": 1
+        },
+        "tiempioRespuesta": {
+          "$id": "#/items/2/properties/tiempioRespuesta",
+          "type": "integer",
+          "examples": [
+            240
+          ],
+          "minimum": 1
+        },
+        "tiempoResolucion": {
+          "$id": "#/items/2/properties/tiempoResolucion",
+          "type": "integer",
+          "examples": [
+            960
+          ],
+          "minimum": 1
+        },
+        "slaId": {
+          "$id": "#/items/2/properties/slaId",
+          "type": "integer",
+          "examples": [
+            1
+          ],
+          "minimum": 1
+        },
+        "escalacion1_resp": {
+          "$id": "#/items/2/properties/escalacion1_resp",
+          "type": "string",
+          "examples": [
+            "Juan@gmail.com, Ernesto@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "escalacion2_resp": {
+          "$id": "#/items/2/properties/escalacion2_resp",
+          "type": "string",
+          "examples": [
+            "Luis@gmail.com, p@p.com, j@j.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "escalacion3_resp": {
+          "$id": "#/items/2/properties/escalacion3_resp",
+          "type": "string",
+          "examples": [
+            "Antonio@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "escalacion4_resp": {
+          "$id": "#/items/2/properties/escalacion4_resp",
+          "type": "string",
+          "examples": [
+            "David@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    {
+      "$id": "#/items/3",
+      "type": "object",
+      "required": [
+        "idSladetail",
+        "prioridad",
+        "tiempioRespuesta",
+        "tiempoResolucion",
+        "slaId",
+        "escalacion1_resp",
+        "escalacion2_resp",
+        "escalacion3_resp",
+        "escalacion4_resp"
+      ],
+      "properties": {
+        "idSladetail": {
+          "$id": "#/items/3/properties/idSladetail",
+          "type": "integer",
+          "examples": [
+            9
+          ],
+          "minimum": 1
+        },
+        "prioridad": {
+          "$id": "#/items/3/properties/prioridad",
+          "type": "integer",
+          "examples": [
+            4
+          ],
+          "minimum": 1
+        },
+        "tiempioRespuesta": {
+          "$id": "#/items/3/properties/tiempioRespuesta",
+          "type": "integer",
+          "examples": [
+            1440
+          ],
+          "minimum": 1
+        },
+        "tiempoResolucion": {
+          "$id": "#/items/3/properties/tiempoResolucion",
+          "type": "integer",
+          "examples": [
+            1920
+          ],
+          "minimum": 1
+        },
+        "slaId": {
+          "$id": "#/items/3/properties/slaId",
+          "type": "integer",
+          "examples": [
+            1
+          ],
+          "minimum": 1
+        },
+        "escalacion1_resp": {
+          "$id": "#/items/3/properties/escalacion1_resp",
+          "type": "string",
+          "examples": [
+            "Juan@gmail.com, Ernesto@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "escalacion2_resp": {
+          "$id": "#/items/3/properties/escalacion2_resp",
+          "type": "string",
+          "examples": [
+            "Luis@gmail.com, p@p.com, j@j.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "escalacion3_resp": {
+          "$id": "#/items/3/properties/escalacion3_resp",
+          "type": "string",
+          "examples": [
+            "Antonio@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "escalacion4_resp": {
+          "$id": "#/items/3/properties/escalacion4_resp",
+          "type": "string",
+          "examples": [
+            "David@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "title": "timbre-viaticos",
+  "type": "object",
+  "properties": {
+    "registros": {
+      "type": "array",
+      "items": [
+        {
+          "idreg": {
+            "type": "integer",
+            "required": false,
+            "title": "idreg"
+          },
+          "fechaTimbrado": {
+            "type": "date",
+            "required": false,
+            "title": "fechaTimbrado"
+          }
+        }
+      ]
+    }
+  }
+}

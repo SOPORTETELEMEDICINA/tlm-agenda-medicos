@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!--<groupId>net.amentum.vitat</groupId> -->
+	<groupId>net.amentum.niomedic</groupId>
+	<!--<artifactId>medicos</artifactId> -->
+	<artifactId>nio-agenda-medicos</artifactId>
+	<version>1.0.4-SNAPSHOT</version>
+            <packaging>jar</packaging>
+
+	<!--<name>medicos</name> -->
+	<name>nio-agenda-medicos</name>
+	<description>Microservicio de medicos</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.10.RELEASE</version>
+		<relativePath />  <!-- lookup parent from repository --> 
+	</parent>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Dalston.SR2</spring-cloud.version>
+		<net.amentum.rest.exception>2.0.1-RELEASE</net.amentum.rest.exception>
+		<net.amentum.lib.medicos-lib>1.0.5-RELEASE</net.amentum.lib.medicos-lib>
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+		<!--<docker.image.prefix>vitat.app</docker.image.prefix> -->
+		<docker.image.prefix>niomedic.app</docker.image.prefix>
+	</properties>
+
+	<repositories>
+		<repository>
+			<name>central</name>
+			<id>central</id>
+            <!-- url>https://repo1.maven.org/maven2/</url  -->
+            <url>https://repo.maven.apache.org/maven2/</url>
+		</repository>
+		<!-- private repository -->
+		<!--repository>
+			<id>Amentum-release-repo</id>
+			<name>Amentum Central Releases</name>
+			<url>http://192.168.20.233:8081/artifactory/libs-release-local</url>
+		</repository-->
+	</repositories>
+
+	<!--<repository> -->
+	<!--<id>Amentum-release-repo</id> -->
+	<!--<name>Amentum Central Releases</name> -->
+	<!--<url>http://192.168.20.233:8081/artifactory/libs-release-local</url> -->
+	<!--</repository> -->
+	<!--<repository> -->
+	<!--<id>spring-milestones</id> -->
+	<!--<name>Spring Milestones</name> -->
+	<!--<url>https://repo.spring.io/milestone</url> -->
+	<!--<snapshots> -->
+	<!--<enabled>false</enabled> -->
+	<!--</snapshots> -->
+	<!--</repository> -->
+	<!--<repository> -->
+	<!--<name>central</name> -->
+	<!--<id>central</id> -->
+	<!--<url>http://repo1.maven.org/maven2/</url> -->
+	<!--</repository> -->
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.8.0</version>
+<!--			<version>2.2.2</version>-->
+		</dependency>
+		<!--dependency>
+			<groupId>net.amentum</groupId>
+			<artifactId>rest-exception</artifactId>
+			<version>${net.amentum.rest.exception}</version>
+		</dependency-->
+                <dependency>
+                    <groupId>net.amentum</groupId>
+                    <artifactId>rest-exception</artifactId>
+                    <version>2.0.3-RELEASE</version>
+                </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+		</dependency>
+		<!--dependency>
+			<groupId>net.amentum.lib</groupId>
+			<artifactId>medicos-lib</artifactId>
+			<version>${net.amentum.lib.medicos-lib}</version>
+		</dependency-->
+                <dependency>
+			<groupId>net.amentum.lib</groupId>
+			<artifactId>medicos-lib</artifactId>
+			<version>1.0.10-RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>net.amentum.lib</groupId>
+			<artifactId>catalogos-lib</artifactId>
+			<version>1.0.7-RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>net.amentum.lib</groupId>
+			<artifactId>expediente-lib</artifactId>
+			<version>1.0.10-RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+
+	</dependencies>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+                    
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                          <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.12.4</version>
+                        <configuration>
+                          <skipTests>true</skipTests>
+                        </configuration>
+                    </plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.13</version>
+				<configuration>
+					<repository>${docker.image.prefix}/${project.artifactId}</repository>
+				</configuration>
+			</plugin>
+
+
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.2</version>
+				<configuration>
+					<skip>${skipSurefire}</skip>
+				</configuration>
+				<executions>
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<!-- <execution> <id>check</id> <phase>test</phase> <goals> <goal>check</goal> 
+						</goals> <configuration> <rules> <rule> <element>CLASS</element> <limits> 
+						<limit> <counter>LINE</counter> <value>COVEREDRATIO</value> <minimum>0.90</minimum> 
+						</limit> <limit> <counter>BRANCH</counter> <value>COVEREDRATIO</value> <minimum>0.90</minimum> 
+						</limit> </limits> <excludes> <exclude>net.amentum.niomedic.expediente.*</exclude> 
+						<exclude>net.amentum.niomedic.expediente.model.*</exclude> <exclude>net.amentum.niomedic.expediente.*</exclude> 
+						<exclude>net.amentum.niomedic.expediente.*</exclude> </excludes> </rule> 
+						</rules> </configuration> </execution> -->
+				</executions>
+			</plugin>
+
+
+
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<activatedProperties>dev</activatedProperties>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>uat</id>
+			<properties>
+				<activatedProperties>uat</activatedProperties>
+			</properties>
+		</profile>
+		<profile>
+			<id>release</id>
+			<properties>
+				<activatedProperties>pro</activatedProperties>
+			</properties>
+		</profile>
+	</profiles>
+
+
+</project>

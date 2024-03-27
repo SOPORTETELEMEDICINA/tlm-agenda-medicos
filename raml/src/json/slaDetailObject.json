@@ -1,0 +1,11 @@
+{
+    "idSladetail": 8,
+    "prioridad": 3,
+    "tiempioRespuesta": 240,
+    "tiempoResolucion": 960,
+    "slaId": 1,
+    "escalacion1_resp": "Juan@gmail.com, Ernesto@gmail.com",
+    "escalacion2_resp": "Luis@gmail.com, p@p.com, j@j.com",
+    "escalacion3_resp": "Antonio@gmail.com",
+    "escalacion4_resp": "David@gmail.com"
+  }

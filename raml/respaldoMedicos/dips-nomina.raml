@@ -1,0 +1,614 @@
+#%RAML 0.8
+title: dipsNomina
+version: v3
+baseUri: "http://api.megacable.com/dips"
+mediaType:  application/json
+schemas: 
+    - 
+        descuento: !include schemas/descuento.json
+    -
+        descuentos: !include schemas/descuentos.json
+    - 
+        viatico: !include schemas/viatico.json
+    - 
+        viaticos: !include schemas/viaticos.json        
+    - 
+        onOk: !include schemas/onOk.json
+    - 
+        onError: !include schemas/onError.json
+    -
+        timbreOk: !include schemas/timbreOk.json
+
+/nomina:
+  /viaticos:
+    description: Permite agregar, extraer y eliminar registros de viáticos.
+    get:
+      description: Devuelve el total de viáticos registrados para todas las compañías, todos los empleados.
+      headers:
+      queryParameters: 
+        fechaDesde: 
+          displayName: fechaDesde
+          description: Lee registro a partir de esta fecha.
+          type: date
+          required: false
+          repeat: false
+          example: "2018-01-01T23:59:00"
+      responses: 
+        200: 
+          description: SUCCESS
+          body: 
+            application/json: 
+              schema: viaticos
+              example: !include examples/viaticos.json
+        500:
+          description: Internal Server Error
+          body:
+            application/json:
+              schema: onError
+              example: !include examples/onError.json
+    post: 
+      description: Agrega un registro de viático a un empleado.
+      body: 
+        application/json: 
+          schema: viatico
+          example: !include examples/viatico-post.json
+      responses: 
+        201: 
+          description: SUCCESS
+          body: 
+            application/json: 
+              schema: onOk
+              example: !include examples/onOk.json
+        404: 
+          description: NOT FOUND
+          body: 
+            application/json: 
+              schema: onError
+              example: !include examples/onError.json
+    delete: 
+      description: Usando el ID que es pasado cómo parámetro, se da de baja el registro si existe.
+      queryParameters: 
+        compania: 
+          displayName: compania
+          description: La compañía de nómina.
+          type: integer
+          required: true
+          repeat: false
+          example: 22
+        emplContable: 
+          displayName: emplContable
+          description: El número de control del empleado.
+          type: string
+          required: true
+          repeat: false
+          example: "EMP0001234"
+        id: 
+          displayName: id
+          description: El identificador único de registro.
+          type: integer
+          required: true
+          repeat: false
+          example: 123
+      responses: 
+        200: 
+          description: SUCCESS
+          body: 
+            application/json: 
+              schema: onOk
+              example: !include examples/onOk.json
+        404: 
+          body: 
+            application/json: 
+              schema: onError
+              example: !include examples/onError.json
+    /{compania}: 
+      description: Control de registros de viáticos por compañía.
+      uriParameters: 
+        compania: 
+          displayName: compania
+          description: El número de compañía en nómina.
+          type: integer
+          required: true
+          repeat: false
+          example: "21"
+      get: 
+        description: Devuelve el total de viáticos registrados por compañía.
+        queryParameters: 
+          fechaDesde: 
+            displayName: fechaDesde
+            description: Lee registros a partir de esta fecha.
+            type: date
+            required: false
+            repeat: false
+            example: "2012-10-22"
+        responses: 
+          200: 
+            description: SUCCESS
+            body: 
+              application/json: 
+                schema: viaticos
+                example: !include examples/viaticos.json
+      post: 
+        description: Registra viáticos para un empleado que pertenece a la compañia relacionada.
+        body: 
+          application/json: 
+            schema: viatico
+            example: !include examples/viatico-post.json
+        responses: 
+          201: 
+            description: CREATED
+            body: 
+              application/json: 
+                schema: onOk
+                example: !include examples/onOk.json
+          404: 
+            description: NOT FOUND
+            body: 
+              application/json: 
+                schema: onError
+                example: !include examples/onError.json
+      delete: 
+        description: Elimina un registro de viático.
+        queryParameters: 
+          emplContable: 
+            displayName: emplContable
+            description: Identificador del empleado.
+            type: string
+            required: true
+            repeat: false
+            example: "EMP0001234"
+          id: 
+            displayName: id
+            description: El identificado único del registro.
+            type: integer
+            required: true
+            repeat: false
+            example: 45866
+        responses: 
+          200: 
+            body: 
+              application/json: 
+                schema: onOk
+                example: !include examples/onOk.json
+          404: 
+            body: 
+              application/json: 
+                schema: onError
+                example: !include examples/onError.json
+      /{emplContable}: 
+        description: Control de registros de viáticos por empleado.
+        uriParameters: 
+          emplContable: 
+            displayName: emplContable
+            description: El identificador del empleado
+            type: string
+            required: true
+            repeat: false
+            example: "EMP0001234"
+        get: 
+          description: Devuelve todos los viáticos registrados para el empleado.
+          queryParameters: 
+            fechaDesde: 
+              displayName: fechaDesde
+              description: La fecha desde la cual se leen datos.
+              type: date
+              required: false
+              repeat: false
+          responses: 
+            200: 
+              description: SUCCESS
+              body: 
+                application/json: 
+                  schema: viaticos
+                  example: !include examples/viaticos.json
+            404: 
+              description: NOT FOUND
+              body: 
+                application/json: 
+                  schema: onError
+                  example: !include examples/onError.json
+        post: 
+            description: Registro de viáticos.
+            body: 
+                application/json: 
+                    schema: viatico
+                    example: !include examples/viatico-post-2.json
+            responses: 
+                200: 
+                    description: SUCCESS
+                    body: 
+                        application/json: 
+                            schema: onOk
+                            example: !include examples/onOk.json
+                404: 
+                    description: NOT FOUND
+                    body: 
+                        application/json: 
+                            schema: onError
+                            example: !include examples/onError.json
+        delete: 
+            description: Elimina un registro de viático
+            queryParameters: 
+                id: 
+                    displayName: id
+                    description: El identificador de registro.
+                    type: integer
+                    required: true
+                    repeat: false
+                    example: "5842"
+            responses: 
+                200: 
+                    body: 
+                        application/json: 
+                            schema: onOk
+                            example: !include examples/onOk.json
+                404: 
+                    description: NOT FOUND
+                    body: 
+                        application/json: 
+                            schema: onError
+                            example: !include examples/onError.json
+        /{id}: 
+          description: Manejo de viáticos por su Id de control.
+          uriParameters: 
+              id: 
+                  displayName: id
+                  type: string
+                  required: true
+                  repeat: false
+                  example: 1234
+          get: 
+              description: Obtiene los datos del registro de viáticos según su Id.
+              responses: 
+                  200: 
+                      description: SUCCESS
+                      body: 
+                          application/json: 
+                              schema: viatico
+                              example: !include examples/viatico.json
+                  404:
+                      description: NOT FOUND
+                      body: 
+                          application/json: 
+                              schema: onError
+                              example: !include examples/onError.json                                    
+    /timbrar:
+      description: Registra la operación de timbrado de viáticos.
+      post:
+        description: Registra en batch todos los viáticos qye fueron timbrados.
+        body:
+          application/json:
+            schema: !include schemas/timbre-viaticos.json
+            example: !include examples/timbre-viaticos.json
+        responses:
+          200:
+            description: SUCCESS
+            body:
+              application/json:
+                schema: timbreOk   
+                example: !include examples/timbreOk.json 
+          404:
+            description: NOT FOUND
+            body:
+              application/json:
+                schema: timbreOk
+                example: !include examples/timbreOk.json      
+      /{id}:
+        description: Registra el timbrado del id especificado.
+        uriParameters: 
+            id: 
+                displayName: id
+                type: string
+                required: true
+                repeat: false
+                example: 1234
+        post:
+          description: Recibe la operación de timbrado para el registro especificado.
+          body:
+            application/json:
+              schema: !include schemas/timbre-viatico.json
+              example: !include examples/timbre-viatico.json
+          responses:
+            200:
+              description: SUCCESS
+              body:
+                application/json:
+                  schema: onOk   
+                  example: !include examples/onOk.json
+            404:                                                              
+              description: NOT FOUND
+              body:
+                application/json:
+                  schema: onError
+                  example: !include examples/onError.json      
+  /descuentos: 
+    description: Control de registros de descuentos.
+    get: 
+        description: Devuelve el saldo para todas las compañias, todos los empleados.
+        responses: 
+            200: 
+                description: SUCCESS
+                body: 
+                    application/json: 
+                        schema: descuentos
+                        example: !include examples/descuentos.json
+    post: 
+        description: Agregar un registro de descuento.
+        body: 
+            application/json: 
+                schema: descuento
+                example: !include examples/descuento.json
+        responses: 
+            201: 
+                description: CREATED
+                body: 
+                    application/json: 
+                        schema: onOk
+                        example: !include examples/onOk.json
+            404: 
+                description: NOT FOUND
+                body: 
+                    application/json: 
+                        schema: onError
+                        example: !include examples/onError.json
+    delete: 
+        description: Elimina un registro de descuento.
+        queryParameters: 
+            compania: 
+                displayName: compania
+                description: La compañía de nómina
+                type: integer
+                required: true
+                repeat: false
+                example: 32
+            emplContable: 
+                displayName: emplContable
+                description: El identificador del empleado.
+                type: string
+                required: true
+                repeat: false
+                example: "EMP0001256"
+            id: 
+                displayName: id
+                description: El identificador único del registro.
+                type: integer
+                required: false
+                repeat: false
+                example: 123
+        responses: 
+            200: 
+                description: SUCCESS
+                body: 
+                    application/json: 
+                        schema: onOk
+                        example: !include examples/onOk.json
+            404: 
+                body: 
+                    application/json: 
+                        schema: onError
+                        example: !include examples/onError.json
+    /{compania}: 
+      description: Manejo de cargos/abonos por compañia de nomina.
+      uriParameters: 
+          compania: 
+              displayName: compania
+              description: Número de compañía de nómina.
+              type: string
+              required: true
+              repeat: false
+              example: 32
+      get: 
+          description: Devuelve el saldo para la compañias, todos los empleados.
+          responses: 
+              200: 
+                  description: SUCCESS
+                  body: 
+                      application/json: 
+                          schema: descuentos
+                          example: !include examples/descuentos.json
+      post: 
+          description: Registra un abono/cargo a un empleado.
+          body: 
+              application/json: 
+                  schema: descuento
+                  example: !include examples/descuento.json
+          responses: 
+              "201": 
+                  description: CREATED
+                  body: 
+                      application/json: 
+                          schema: onOk
+                          example: !include examples/onOk.json
+              404: 
+                  description: NOT FOUND
+                  body: 
+                      application/json: 
+                          schema: onError
+                          example: !include examples/onError.json
+      delete: 
+          description: Elimina un registro de descuento, valida el número de compañía.
+          queryParameters: 
+              emplContable: 
+                  displayName: emplContable
+                  description: Identificador del empleado.
+                  type: string
+                  required: false
+                  repeat: false
+                  example: "EMP0001342"
+              id: 
+                  displayName: id
+                  description: El identificador del registro único de descuento.
+                  type: integer
+                  required: false
+                  repeat: false
+                  example: 123
+          responses: 
+              200: 
+                  body: 
+                      application/json: 
+                          schema: onOk
+                          example: !include examples/onOk.json
+      /{emplContable}: 
+        description: Manejo de descuentos por empleado.
+        uriParameters: 
+            emplContable: 
+                displayName: emplContable
+                description: Identificador del empleado.
+                type: string
+                required: true
+                repeat: false
+                example: "EMP0001234"
+        get: 
+            description: Devuelve los descuentos del empleado.
+            responses: 
+                200: 
+                    description: SUCCESS
+                    body: 
+                        application/json: 
+                            schema: descuento
+                            example: !include examples/descuento.json
+        post: 
+            description: Agrega un descuento.
+            body: 
+                application/json: 
+                    schema: descuento
+                    example: !include examples/descuento.json
+        delete: 
+            description: Elimina un registro de descuento.
+            queryParameters: 
+                id: 
+                    displayName: id
+                    description: Identificador único del registro.
+                    type: integer
+                    required: false
+                    repeat: false
+                    example: 3232
+            responses: 
+                200: 
+                    body: 
+                        application/json: 
+                            schema: onOk
+                            example: !include examples/onOk.json
+                404: 
+                    description: NOT FOUND
+                    body: 
+                        application/json: 
+                            schema: onError
+                            example: !include examples/onError.json
+        /{id}: 
+          description: Manejo de descuentos por Id.
+          uriParameters: 
+              id: 
+                  displayName: id
+                  description: Identificador del registro.
+                  type: integer
+                  required: true
+                  repeat: false
+                  example: 4582
+          get: 
+              description: Obtiene los datos sobre el registro según su Id.
+              responses: 
+                  200: 
+                      description: SUCCESS
+                      body: 
+                          application/json: 
+                              schema: descuento
+                              example: !include examples/descuento.json
+      /abonos: 
+        description: Consulta todos los abonos aplicados en nómina.
+        get: 
+            description: Devuelve todos los abonos aplicados por nómina.
+            responses: 
+                200: 
+                    body: 
+                        application/json: 
+                            schema: descuentos
+                            example: !include examples/descuentos.json
+        /{emplContable}: 
+          description: Manejo de los abonos hechos a la cuenta del empleado.
+          uriParameters: 
+              emplContable: 
+                  displayName: emplContable
+                  description: Identificador único del empleado
+                  type: string
+                  required: true
+                  repeat: false
+                  example: "EMP0001234"
+          get: 
+              description: Devuelve todos los abonos hechos por empleado.
+              responses: 
+                  200: 
+                      description: SUCCESS
+                      body: 
+                          application/json: 
+                              schema: descuentos
+                              example: !include examples/descuentos.json
+      /cargos: 
+        description: Consulta todos los cargos aplicados para descuento.
+        get: 
+            description: Devuelve todos los cargos registrados en la compañía.
+            responses: 
+                200: 
+                    body: 
+                        application/json: 
+                            schema: descuentos
+                            example: !include examples/descuentos.json
+        /{emplContable}: 
+          description: Manejo de los cargos hechos a la cuenta del empleado.
+          uriParameters: 
+            emplContable: 
+              displayName: emplContable
+              description: Identificador único del empleado.
+              type: string
+              required: true
+              repeat: false
+              example: "EMP0001234"
+          get: 
+            description: Devuelve todos los cargos hechos al empleado.
+            responses: 
+                200: 
+                    description: SUCCESS
+                    body: 
+                        application/json: 
+                            schema: descuentos
+                            example: !include examples/descuento.json
+  /token:
+    description: obtener token
+    post:
+      description: test token.
+      body: 
+        application/json: 
+          schema: |
+            { "$schema": "http://json-schema.org/schema",
+              "type": "object",
+              "required":true,
+              "properties": {
+                "username":{"type":"string","required":true},
+                "password":{"type":"string","required":true}
+              }
+            }
+          example: |
+            {"username":"test","password":"1234567"}
+      responses:
+        200:
+          description: SUCCESS
+          body: 
+            application/json:
+              schema: |
+                { "$schema": "http://json-schema.org/schema",
+                  "type": "object",
+                  "required":true,
+                  "properties": {
+                    "access_token":{"type":"string"},
+                    "scope":{"type":"string"},
+                    "token_type":{"type":"string"},
+                    "expires_in":{"type":"number"}
+                  }
+                }
+              example: | 
+                {
+                  "access_token": "qGZ3TiyIN30cxrDsqz0f0T5zNq3gNGD9IdhPbF6rHV3jxlsdKaTcyAaI8dzUkDH9z0iOEqfPv9PvJ514_WSLKw",
+                  "scope": "ALL",
+                  "token_type": "bearer",
+                  "expires_in": 1439999
+                } 

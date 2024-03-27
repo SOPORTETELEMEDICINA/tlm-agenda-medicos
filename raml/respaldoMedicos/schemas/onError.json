@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "description": "Estructura de respuesta para cuando la operación terminó en error.",
+  "title": "onError",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "required": true,
+      "title": "code"
+    },
+    "message": {
+      "type": "string",
+      "required": true,
+      "title": "message"
+    }
+  }
+}

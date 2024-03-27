@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+     "id_sla":1,
+    "descripcion":"gold",
+    "idCategory":"",
+    "idSubcategory":"",
+    "idTipoTicket":"",
+    "horarioNatural":false,
+    "porcentajeAlerta":90
+    },
+    {
+    "id_sla":4,
+    "descripcion":"basic",
+    "idCategory":"",
+    "idSubcategory":"",
+    "idTipoTicket":"",
+    "horarioNatural":false,
+    "porcentajeAlerta":75
+    }
+  ],
+  "first": true,
+  "last": true,
+  "number": 0,
+  "numberOfElements": 0,
+  "size": 0,
+  "totalElements": 0,
+  "totalPages": 0
+}

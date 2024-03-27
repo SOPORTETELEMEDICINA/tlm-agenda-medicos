@@ -1,0 +1,46 @@
+[
+  {
+    "idSladetail": 6,
+    "prioridad": 1,
+    "tiempioRespuesta": 60,
+    "tiempoResolucion": 240,
+    "idSla": 1,
+    "escalacion1_resp": "Juan@gmail.com, Ernesto@gmail.com",
+    "escalacion2_resp": "Luis@gmail.com, p@p.com, j@j.com",
+    "escalacion3_resp": "Antonio@gmail.com",
+    "escalacion4_resp": "David@gmail.com"
+  },
+  {
+    "idSladetail": 7,
+    "prioridad": 2,
+    "tiempioRespuesta": 120,
+    "tiempoResolucion": 480,
+    "slaId": 1,
+    "escalacion1_resp": "Juan@gmail.com, Ernesto@gmail.com",
+    "escalacion2_resp": "Luis@gmail.com, p@p.com, j@j.com",
+    "escalacion3_resp": "Antonio@gmail.com",
+    "escalacion4_resp": "David@gmail.com"
+  },
+  {
+    "idSladetail": 8,
+    "prioridad": 3,
+    "tiempioRespuesta": 240,
+    "tiempoResolucion": 960,
+    "slaId": 1,
+    "escalacion1_resp": "Juan@gmail.com, Ernesto@gmail.com",
+    "escalacion2_resp": "Luis@gmail.com, p@p.com, j@j.com",
+    "escalacion3_resp": "Antonio@gmail.com",
+    "escalacion4_resp": "David@gmail.com"
+  },
+  {
+    "idSladetail": 9,
+    "prioridad": 4,
+    "tiempioRespuesta": 1440,
+    "tiempoResolucion": 1920,
+    "slaId": 1,
+    "escalacion1_resp": "Juan@gmail.com, Ernesto@gmail.com",
+    "escalacion2_resp": "Luis@gmail.com, p@p.com, j@j.com",
+    "escalacion3_resp": "Antonio@gmail.com",
+    "escalacion4_resp": "David@gmail.com"
+  }
+]

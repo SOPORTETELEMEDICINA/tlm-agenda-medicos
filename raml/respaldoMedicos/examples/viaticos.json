@@ -1,0 +1,60 @@
+{
+  "viaticos": [
+    {
+      "id": 1,
+      "compania": 19,
+      "emplContable": "EMP0001234",
+      "dip": "",
+      "monto": 1200.00,
+      "fechaRegistro": "2017-05-21T12:45:00",
+      "concepto": "Viaje a Sinaloa.",
+      "origen": {
+        "appId": "EXPENSES",
+        "usuario": "Roberto Rodríguez",
+        "nota": "Texto libre, puedes escribir lo que sea que describa la operación."
+      }
+    },
+    {
+      "id": 2,
+      "compania": 19,
+      "emplContable": "EMP0001234",
+      "dip": "",
+      "monto": 1200.00,
+      "fechaRegistro": "2017-05-21T12:45:00",
+      "concepto": "Viaje a Estados Unidos",
+      "origen": {
+        "appId": "EXPENSES",
+        "usuario": "Roberto Rodríguez",
+        "nota": "Texto libre, puedes escribir lo que sea que describa la operación."
+      }
+    },
+    {
+      "id": 3,
+      "compania": 19,
+      "emplContable": "EMP0001234",
+      "dip": "",
+      "monto": 1200.00,
+      "fechaRegistro": "2017-05-21T12:45:00",
+      "concepto": "Revisión de sistema en Tepic",
+      "origen": {
+        "appId": "EXPENSES",
+        "usuario": "Roberto Rodríguez",
+        "nota": "Texto libre, puedes escribir lo que sea que describa la operación."
+      }
+    },
+    {
+      "id": 4,
+      "compania": 19,
+      "emplContable": "EMP0001234",
+      "dip": "",
+      "monto": 1200.00,
+      "fechaRegistro": "2017-05-21T12:45:00",
+      "concepto": "Salida a Culiacán, Sinaloa.",
+      "origen": {
+        "appId": "EXPENSES",
+        "usuario": "Roberto Rodríguez",
+        "nota": "Texto libre, puedes escribir lo que sea que describa la operación."
+      }
+    }
+  ]
+}

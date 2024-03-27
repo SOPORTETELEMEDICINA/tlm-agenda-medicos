@@ -1,0 +1,77 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+    idMedico: 
+      type: string
+      example: "qwe123"
+    nombre: 
+        type: string
+        example: "Juanito"
+    apellidoPaterno: 
+        type: string
+        example: "Pérez"
+    apellidoMaterno: 
+        type: string
+        example: "López"
+    fechaNacimiento: 
+        type: date-only
+        example: 1976-06-04
+    estadoCivil: 
+        type: string
+        example: "Soltero"
+    sexo: 
+        type: string
+        example: "Hombre"
+    curp: 
+        type: string
+        example: "PELOJU760406PLJ"
+    rfc:
+        type: string
+        example: "PELJ760406"
+    especialidad: 
+        type: string
+        example: "Traumatología"
+    universidad: 
+        type: string
+        example: "UAEH"
+    cedula: 
+        type: string
+        example: "Hueso696969"
+    email: 
+        type: string
+        example: "juanitoTrauma@imss.gob.mx"
+    telefonoOficina: 
+        type: string
+        example: "7711234567"
+    telefonoCelular: 
+        type: string
+        example: "7710987654"
+    idDomicilio: 
+        type: string
+        example: "domID34"
+    idUsuario: 
+        type: integer
+        format: int
+        example: 12399
+    activo: 
+        type: boolean
+        example: true
+example:
+    idMedico: "qwe123"
+    nombre: "Juanito"
+    apellidoPaterno: "Pérez"
+    apellidoMaterno: "López"
+    fechaNacimiento: 1976-04-06
+    estadoCivil: "Soltero"
+    sexo: "Hombre"
+    curp: "PELOJU760406PLJ"
+    rfc: "PELJ760406"
+    especialidad: "Traumatología"
+    universidad: "UAEH"
+    cedula: "Hueso696969"
+    email: "juanitoTrauma@imss.gob.mx"
+    telefonoOficina: "7711234567"
+    telefonoCelular: "7710987654"
+    idDomicilio: "domID34"
+    idUsuario: 12399
+    activo: true

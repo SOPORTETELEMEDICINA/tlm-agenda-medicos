@@ -1,0 +1,107 @@
+#%RAML 1.0
+---
+title: API Medicos
+baseUri: http://amentum.net/vitat/medicos
+version: v1
+#mediaType:  application/json
+
+types:
+  MedicoView: !include types/MedicoView.raml
+
+resourceTypes: 
+  collection: !include types/collection.raml
+
+/medicos:
+  post:
+    description: Crear un medico
+    body:
+      application/json:
+        type: MedicoView
+    responses:
+      201:
+        description: CREATED
+        body:
+          application/json:
+            example: |
+              { "codigo": "201","mensaje": "Medico creado" }
+      500:
+        description: Internal Server Error
+        body:
+          application/json:
+            example: |
+              { "codigo": "500","mensaje": "Internal Server Error" }
+  /{idMedico}:
+    uriParameters: 
+      idMedico:
+        description: 
+        type: string
+        example: "qwe123"
+    put:
+      description: Modificar los datos de un medico
+      body:
+        application/json:
+          type: MedicoView
+      responses:
+        200:
+          body:
+            text/plain:
+              type: nil
+        500:
+          description: Se presento un error
+    get:
+      description: Obtener un medico por su ID
+      responses:
+        200:
+          body:
+            application/json:
+              #type: <<resourcePath>> #MedicoView
+              type: MedicoView
+        500:
+          description: Se presento un error
+  /obtenerPorIdUsuario/{idUsuario}:
+    get:
+      description: Obtener un medico por su ID de Usuario
+      responses:
+        200:
+          body:
+            application/json:
+              type: MedicoView
+        500:
+          description: Se presento un error
+  /page:
+    type: collection
+    get:
+      description: Obtener todos los medicos paginados
+      queryParameters:
+        active:
+          description: Si se encuentra activo
+          type: boolean
+          required: false
+        name:
+          description: El nombre
+          type: string
+          required: false
+          default: void
+        page:
+          description: El número de la página
+          type: integer
+          required: false
+        size:
+          description: El tamaño de la registros
+          type: integer
+          required: false
+        orderColum:
+          description: Por la columna que se va a ordenar
+          type: string
+          required: false
+        orderType:
+          description: Tipo de ordenamiento
+          type: string
+          required: false
+          example: desc
+      responses:
+          200:
+#            body:
+#              application/json:
+#                type: MedicoView[]
+

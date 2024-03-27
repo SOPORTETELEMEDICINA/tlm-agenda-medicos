@@ -1,0 +1,84 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "required": [
+    "idSladetail",
+    "slaId"
+  ],
+  "properties": {
+    "idSladetail": {
+      "$id": "#/properties/idSladetail",
+      "type": "integer",
+      "examples": [
+        8
+      ],
+      "minimum": 1
+    },
+    "prioridad": {
+      "$id": "#/properties/prioridad",
+      "type": "integer",
+      "examples": [
+        3
+      ],
+      "minimum": 1
+    },
+    "tiempioRespuesta": {
+      "$id": "#/properties/tiempioRespuesta",
+      "type": "integer",
+      "examples": [
+        240
+      ],
+      "minimum": 1
+    },
+    "tiempoResolucion": {
+      "$id": "#/properties/tiempoResolucion",
+      "type": "integer",
+      "examples": [
+        960
+      ],
+      "minimum": 1
+    },
+    "slaId": {
+      "$id": "#/properties/slaId",
+      "type": "integer",
+      "examples": [
+        1
+      ],
+      "minimum": 1
+    },
+    "escalacion1_resp": {
+      "$id": "#/properties/escalacion1_resp",
+      "type": "string",
+      "examples": [
+        "Juan@gmail.com, Ernesto@gmail.com"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "escalacion2_resp": {
+      "$id": "#/properties/escalacion2_resp",
+      "type": "string",
+      "examples": [
+        "Luis@gmail.com, p@p.com, j@j.com"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "escalacion3_resp": {
+      "$id": "#/properties/escalacion3_resp",
+      "type": "string",
+      "examples": [
+        "Antonio@gmail.com"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "escalacion4_resp": {
+      "$id": "#/properties/escalacion4_resp",
+      "type": "string",
+      "examples": [
+        "David@gmail.com"
+      ],
+      "pattern": "^(.*)$"
+    }
+  }
+}
